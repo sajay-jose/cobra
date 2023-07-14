@@ -7,7 +7,7 @@
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   <title>Banking Modal</title>
 </head>
-
+{% block content %}
 <body>
   <div class="text-center pt-5">
     <button type="button" class="btn btn-primary m-2 mx-auto" data-toggle="modal" data-target="#depositModal">Deposit</button>
@@ -22,30 +22,30 @@
   </div>
   
 
-  <div class="container mt-5">
-    <form class="mx-auto" style="max-width: 500px;" action="register" method="post">
-      {% csrf_token %}
-      <div class="form-group">
-        <label for="account_number">Account Number</label>
-        <input type="text" class="form-control" id="account_number" name="account_number"
-          placeholder="Enter account number">
-      </div>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">
-      </div>
-      <div class="form-group">
-        <label for="amount">Amount</label>
-        <input type="text" class="form-control" id="amount" name="amount" placeholder="Enter amount">
-      </div>
-      <div class="form-group">
-        <label for="phone">Phone</label>
-        <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone number">
-      </div>
+<!--  <div class="container mt-5">-->
+<!--    <form class="mx-auto" style="max-width: 500px;" action="register" method="post">-->
+<!--      {% csrf_token %}-->
+<!--      <div class="form-group">-->
+<!--        <label for="account_number">Account Number</label>-->
+<!--        <input type="text" class="form-control" id="account_number" name="account_number"-->
+<!--          placeholder="Enter account number">-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--        <label for="name">Name</label>-->
+<!--        <input type="text" class="form-control" id="name" name="name" placeholder="Enter name">-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--        <label for="amount">Amount</label>-->
+<!--        <input type="text" class="form-control" id="amount" name="amount" placeholder="Enter amount">-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--        <label for="phone">Phone</label>-->
+<!--        <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter phone number">-->
+<!--      </div>-->
 
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-  </div>
+<!--      <button type="submit" class="btn btn-primary">Submit</button>-->
+<!--    </form>-->
+<!--  </div>-->
   <div class="modal fade" id="depositModal" tabindex="-1" role="dialog" aria-labelledby="depositModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -59,10 +59,6 @@
         <div class="modal-body">
           <form action="deposite" method="POST" id="deposite">
             {% csrf_token %}
-            <div class="form-group">
-              <label for="account_number">Account Number</label>
-              <input type="text" class="form-control" id="account_number" name="Ac_no" placeholder="Enter account number">
-            </div>
             <div class="form-group">
               <label for="deposit_amount">Deposit Amount</label>
               <input type="text" class="form-control" id="deposit_amount" name="deposit_amount" placeholder="Enter deposit amount">
@@ -90,10 +86,6 @@
         <div class="modal-body">
           <form action="withdraw" method="POST" id="withdraw">
             {% csrf_token %}
-            <div class="form-group">
-              <label for="account_number">Account Number</label>
-              <input type="text" class="form-control" id="account_number" name="Ac_no" placeholder="Enter account number">
-            </div>
             <div class="form-group">
               <label for="withdraw_amount">Withdraw Amount</label>
               <input type="text" class="form-control" id="withdraw_amount" name="withdraw_amount"
@@ -135,6 +127,7 @@
       </div>
     </div>
   </div>
+  {% endblock %}
   <script>
     function balanceForm() {
       document.getElementById("balance").submit();
@@ -159,10 +152,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
-</body>
-
-</html>
-
 <style>
   body {
     background-image: url({% static 'bank.jpg' %});
@@ -170,5 +159,8 @@
     background-repeat: no-repeat;
   }
 </style>
-
+</body>
 </html>
+
+
+

@@ -6,5 +6,6 @@ class bank(models.Model):
   name = models.CharField(max_length=50)
   amount = models.IntegerField()
   phone = models.IntegerField()
+  password = models.CharField(max_length=120)
   def __str__(self):
     return self.name

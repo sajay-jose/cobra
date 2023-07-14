@@ -19,8 +19,10 @@ from app1 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.display),
-    path('register',views.reg),
+    path('', views.reg),
+    path('register', views.reg),
+    path('my_login',views.my_login),
+    path('display',views.display),
     path('balance',views.balance),
     path('deposite',views.deposite),
     path('withdraw',views.withdraw)
